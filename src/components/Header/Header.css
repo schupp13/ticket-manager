@@ -1,0 +1,24 @@
+.header{
+  height: 20vh;
+  background-color: #8aae92;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 100vw;
+   
+}
+
+.headerTitle{
+color: #c4e3cb;
+font-size: 5vw;
+margin-left: 50px;
+font-family: 'Passion One', cursive;
+align-self: center;
+
+}
+
+.frog{
+  font-size: 150px;
+  color: #c4e3cb;
+  margin-left: 50px;
+}

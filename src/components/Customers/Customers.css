@@ -1,0 +1,40 @@
+.customerApp{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80vw;
+}
+
+.customerHeader{
+  font-size: 40px;
+  
+}
+
+.customerWrapper{
+  width: 100%;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+
+}
+
+.customerBlock{
+  border: 3px solid #8aae92;
+  min-width: 400px;
+  padding: 15px;
+  margin: 15px;
+  background-color: #c4e3cb;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.plusDiv{
+align-self: flex-end;
+}
+
+.customerPlus{
+  font-size: 30px;
+
+}
