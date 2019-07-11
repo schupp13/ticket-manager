@@ -11,9 +11,7 @@ app.get("/api",(req, res)=>{
 });
 
 app.get("/api/customers", customerController.getCustomers)
-
-
-
+app.get("/api/customers/:id", customerController.getCustomer);
 
 
 const PORT = 5050;

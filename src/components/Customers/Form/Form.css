@@ -1,0 +1,16 @@
+.formDiv{
+  margin-top: 50px;
+  display:flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  background-color: #8AAE92;
+}
+
+.formDiv > *{
+  width: 50%;
+  margin-top: 20px;
+
+}

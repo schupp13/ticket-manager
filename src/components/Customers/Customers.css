@@ -29,12 +29,22 @@ justify-content: center;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  border-radius: 12px;
 }
-.plusDiv{
-align-self: flex-end;
+.plusIdDiv{
+  width: 100%;
+
+display:flex;
+flex-direction: row-reverse;
+justify-content: space-between;
 }
 
 .customerPlus{
   font-size: 30px;
 
+}
+
+.customerId{
+  font-size: 30px;
+  margin: 0;
 }

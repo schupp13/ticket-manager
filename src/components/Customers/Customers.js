@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
 import './Customers.css';
+// import Form from './Form/Form';
+import DisplayCustomer from './DisplayCustomer/DisplayCustomer';
 
 
 class Customers extends Component{
@@ -8,7 +10,8 @@ class Customers extends Component{
     super(props);
     this.state = {
       customers :[],
-      
+      viewForm: false,
+      error: ''
     }
   }
 
@@ -17,32 +20,42 @@ class Customers extends Component{
       console.log(response.data);
       this.setState({
         customers: response.data,
-      }); 
-      console.log(this.state.customers);
-  })};
+       }) 
+  })
+
+};
+
+  form = (customerID) =>{
+    Axios.get(`/api/customers/${customerID}`).then(response => {
+      console.log(response)
+    });
+    if (this.state.viewForm === true) {
+      
+    }
+    console.log(customerID + "clicked");
+  }
 
   render(){
-    let customersName = this.state.customers.map((e, i) =>{
-      return (<article className="customerBlock">
-      <div className="plusDiv">
-      <i className="far fa-plus-square customerPlus"></i>
-      </div>
-      <h4 className="customerId">{e.id}</h4>
-      <h4 className="customerName">{e.first_name} {e.last_name}</h4>
-      <p className="customerEmail">{e.email}</p>
-      <p className="customerPhone">{e.phone}</p>
-      <p className="customerAddress">{e.address}</p>
-      </article>)
-    }); 
-    
-    return(
-      
+     
+    let {customers} = this.state;
+    return(  
       <section className="customerApp">
       <h1 className="customerHeader">List of Customers</h1>
       <div className="customerWrapper">
-      {customersName}
-      </div>
+        {customers.map( customer =>{
+          return <DisplayCustomer 
+          id={customer.id}
+          first_name ={ customer.first_name}
+          last_name ={ customer.last_name}
+          email = {customer.email}
+          phone = {customer.phone}
+          key = {customer.id}
+          toggleForm={this.props.toggleForm}
+          />
+        })}
       
+      </div>
+      <p>{this.state.error}</p>
       </section>
     )
 

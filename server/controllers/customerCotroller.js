@@ -180,9 +180,23 @@ const getCustomers = (req, res) =>{
  
 };
 
+//THIS ONE IS SINGULAR
+const getCustomer = (req, res) =>{
+  let customer = customers.find(element => {
+    console.log(element.id == req.params.id);
+    if(element.id === Number(req.params.id)){
+
+      return element
+    };
+  });
+  console.log(customer);
+  res.status(200).json(customer);
+}
+
 module.exports = {
   customers,
   getCustomers,
+  getCustomer
 };
 
 
