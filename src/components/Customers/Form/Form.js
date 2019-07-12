@@ -50,7 +50,7 @@ axios.post('/api/tickets', {
     return(
     <div className="formPageDiv">
         <DisplayCustomer id={id} first_name={first_name} last_name={last_name} phone={phone} email={email}/>
-    <form className="formDiv" onSubmit={this.handleSubmit } method="POST"> 
+    <form className="formDiv" onSubmit={this.handleSubmit } > 
       <h1>Ticket Form</h1>
       <label >Description</label>
       <textarea name="description" onChange={this.handleChange}></textarea> 
