@@ -6,6 +6,7 @@ import React from 'react';
    return(
   <article className="customerBlock">
   <div className="plusIdDiv">
+    {}
     <i onClick={() => props.toggleForm(id)} className="far fa-plus-square customerPlus"></i>
     <h4 className="customerId">{id}</h4>
   </div>

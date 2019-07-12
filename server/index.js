@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const customerController = require("./controllers/customerCotroller");
+const ticketController = require("./controllers/ticketController");
 
 //allows me to use body
 app.use(express.json());
@@ -12,6 +13,9 @@ app.get("/api",(req, res)=>{
 
 app.get("/api/customers", customerController.getCustomers)
 app.get("/api/customers/:id", customerController.getCustomer);
+
+app.get("/api/tickets", ticketController.getTicket);
+app.post("/api/tickets", ticketController.createTicket);
 
 
 const PORT = 5050;

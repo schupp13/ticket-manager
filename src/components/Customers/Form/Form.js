@@ -1,40 +1,72 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 import './Form.css'
-
+import DisplayCustomer from '../DisplayCustomer/DisplayCustomer'
 class Form extends Component{
 constructor(){
   super();
-  this.state ={
-    customerID: this.props.customerID
+  this.state = {
+    customer: [],
+    // 
+    description: "",
+    status: "", 
+    time:"",
+    customerId: 0
+
   };
 }
 
 componentDidMount(){
-
+  let {customerId} = this.props;
+  axios.get(`/api/customers/${customerId}`).then( res =>{
+    this.setState({customer: res.data})
+  }
+  )
 }
 
+handleChange = (event) => {
+  this.setState({[event.target.name]: event.target.value});
+}
+
+handleSubmit(e){
+  let {description, status, time, customerId} = this.state;
+  let{toggleForm} = this.props;
+
+  e.preventDefault();
+axios.post('/api/tickets', {
+  description: description,
+  status: status, 
+  time:time,
+  customerId: customerId
+}).then(() =>{toggleForm(0)})
+}
+
+
   render(){
+    let {id, first_name, last_name, phone, email} = this.state.customer;
     
+    console.log(this.state);
     
     return(
-      
-    <form className="formDiv">
+    <div className="formPageDiv">
+        <DisplayCustomer id={id} first_name={first_name} last_name={last_name} phone={phone} email={email}/>
+    <form className="formDiv" onSubmit={this.handleSubmit } method="POST"> 
       <h1>Ticket Form</h1>
-      <label for="description">Description</label>
-      <textarea name="description"></textarea> 
-      <label for="time">Please enter the date and time.</label>
-      <input name="time" type="datetime-local"></input>
-      <label for="status">Please enter the status.</label>
-      <select name="status">
-        <option className="critical" value="critical">Critical</option>
-        <option className="semi" value="semi-critical">Semi-Critical</option>
-        <option className="task" value="task">Task</option>
-        <option className="closed" value="closed">Closed</option>
+      <label >Description</label>
+      <textarea name="description" onChange={this.handleChange}></textarea> 
+      <label>Please enter the date and time.</label>
+      <input name="time" type="date"  value={this.state.time} onChange={this.handleChange}></input>
+      <label >Please enter the status.</label>
+      <select name="status" value={this.state.status} onChange={this.handleChange}>
+        <option className="critical" value="Critical">Critical</option>
+        <option className="semi" value="Semi-Critical">Semi-Critical</option>
+        <option className="task" value="Task">Task</option>
+        <option className="closed" value="Closed">Closed</option>
       </select>
-        <button onClick={() => {
-          this.props.toggleForm()
-        }}>Submit</button>
+      <input value={this.props.customerId} name="customerId" type="hidden"></input>
+        <button>Submit</button>
     </form>
+    </div>
     )
   }
  

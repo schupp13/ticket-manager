@@ -1,16 +1,62 @@
-.formDiv{
+.formPageDiv{
+  display: flex;
+  justify-content: center;
   margin-top: 50px;
+  flex-wrap: wrap;
+  background-color: #C4E3CB;
+  border: 2px solid #8AAE92;
+  border-radius: 15px;
+}
+
+.formDiv{
+  border-radius: 12px;
   display:flex;
   flex-direction: column;
-  width: 50%;
+  width: 500px;
   justify-content: center;
   align-items: center;
-  height: 500px;
-  background-color: #8AAE92;
+  background-color: #C4E3CB;
 }
 
 .formDiv > *{
-  width: 50%;
-  margin-top: 20px;
+  width: 80%;
+  margin-top: 8px;
 
+}
+
+.formDiv h1{
+  font-size:  30px;
+  margin-bottom: 0;
+  
+}
+label{
+  font-size: 20px;
+}
+
+input{
+  height: 30px;
+}
+textarea{
+  height: 110px;
+  
+}
+
+select{
+  height: 30px;
+}
+button{
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.critical{
+  background-color: #f68787;
+}
+
+.semi{
+  background-color: #f8a978;
+}
+
+.task{
+  background-color: #C4E3CB;
 }

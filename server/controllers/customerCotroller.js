@@ -183,7 +183,7 @@ const getCustomers = (req, res) =>{
 //THIS ONE IS SINGULAR
 const getCustomer = (req, res) =>{
   let customer = customers.find(element => {
-    console.log(element.id == req.params.id);
+
     if(element.id === Number(req.params.id)){
 
       return element

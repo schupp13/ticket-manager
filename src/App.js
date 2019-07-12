@@ -5,7 +5,6 @@ import Tickets from "./components/Tickets/Tickets";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Form from './components/Customers/Form/Form';
 import './App.css';
-import { thisTypeAnnotation } from '@babel/types';
 
 class App extends Component{
   constructor(){
@@ -47,7 +46,7 @@ class App extends Component{
         {view === "dashboard" ? <Dashboard />:
          view === "customers" ? <Customers toggleForm={this.toggleForm}/>:
          view === "tickets" ? <Tickets />: 
-         view === "form" ? <Form toggleForm={this.toggleForm} id={this.state.customerId}/> : null}
+         view === "form" ? <Form toggleForm={this.toggleForm} customerId={customerId}/> : null}
     </div>
   )
   }
