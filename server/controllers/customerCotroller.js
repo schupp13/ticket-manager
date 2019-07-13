@@ -177,19 +177,16 @@ const customers = [{
 
 const getCustomers = (req, res) =>{
   res.status(200).json(customers);
- 
 };
 
 //THIS ONE IS SINGULAR
 const getCustomer = (req, res) =>{
   let customer = customers.find(element => {
-
     if(element.id === Number(req.params.id)){
-
       return element
     };
   });
-  console.log(customer);
+  // console.log(customer);
   res.status(200).json(customer);
 }
 

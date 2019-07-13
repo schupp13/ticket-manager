@@ -16,6 +16,8 @@ app.get("/api/customers/:id", customerController.getCustomer);
 
 app.get("/api/tickets", ticketController.getTicket);
 app.post("/api/tickets", ticketController.createTicket);
+app.delete("/api/tickets/:id" , ticketController.deleteTicket);
+app.put("/api/tickets/:id" , ticketController.editTicket);
 
 
 const PORT = 5050;

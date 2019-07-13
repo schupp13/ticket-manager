@@ -1,18 +1,20 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
+import './Tickets.css';
+import DisplayTicket from './DisplayTicket/DisplayTicket'
 
 
 class Tickets extends Component{
   constructor(props){
     super(props);
     this.state = {
-      tickets :[],
+      tickets: [],
 
+ //edit variables
+ 
     }
-  }
-
+  }  
   
-
   componentDidMount(){
     Axios
     .get("/api/tickets").then( response =>{
@@ -22,15 +24,46 @@ class Tickets extends Component{
        }) 
   })
   }
+  
+ 
 
-  render(){
-    let {tickets} = this.state.tickets;
-    return(
-      
-      <h1>{tickets}</h1>
-    )
-
+  deleteTicket = (id) =>{
+    Axios
+    .delete(`api/tickets/${id}`).then( response =>{
+      this.setState({
+        tickets: response.data
+      });
+    });
   }
+
+  editTicket = (id, description, status) =>{
+    Axios
+    .put(`api/tickets/${id}`,{description, status}).then( response =>{
+      this.setState({
+        tickets: response.data,
+      });
+    });
+}
+  
+  render(){
+   console.log(this.state.tickets)
+    let viewTickets = this.state.tickets.map((ticket, index)=>{
+        return <DisplayTicket 
+        ticket={ticket}
+        deleteTicket = {this.deleteTicket}
+        editTicket ={this.editTicket}
+        />
+    })
+    return(    
+     <section className="ticketPageDiv">
+       <h1 className="customerHeader">Ticket List</h1>
+       <div className="ticketSection">
+      {/* ticketBox >  */}
+       {viewTickets}
+       </div>
+     </section>
+      )
+}
 }
 
 export default Tickets;

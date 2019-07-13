@@ -3,7 +3,7 @@
   padding: 0;
 }
 .App {
-  text-align: center;
+  
   padding: 0;
   margin: 0;
   display: flex;
@@ -17,21 +17,31 @@
 }
 
 .navBar{
-  height: 5vh;
+  height:6vh;
   width: 100vw;
   background-color: #616161;
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   
   
 }
 
 .navButton{
-  padding: 0 30px;
+  height:6vh;
   background-color: #616161;
+  height: 70%;
   border: none;
+  font-size: 20px;
+}
+.navButton:active{
+  background-color: white;
 }
 
 .navButton:first-child{
   margin-left: 50px;
+}
+
+i, button:hover{
+cursor: pointer;
 }

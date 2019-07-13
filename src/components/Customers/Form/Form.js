@@ -2,22 +2,23 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import './Form.css'
 import DisplayCustomer from '../DisplayCustomer/DisplayCustomer'
+
 class Form extends Component{
 constructor(){
   super();
   this.state = {
     customer: [],
-    // 
     description: "",
     status: "", 
     time:"",
     customerId: 0
-
+ 
   };
 }
 
 componentDidMount(){
   let {customerId} = this.props;
+  this.setState({customerId: customerId})
   axios.get(`/api/customers/${customerId}`).then( res =>{
     this.setState({customer: res.data})
   }
@@ -28,18 +29,29 @@ handleChange = (event) => {
   this.setState({[event.target.name]: event.target.value});
 }
 
-handleSubmit(e){
+handleSubmit = (e) =>{
+  e.preventDefault();
+  
   let {description, status, time, customerId} = this.state;
+  
   let{toggleForm} = this.props;
 
-  e.preventDefault();
 axios.post('/api/tickets', {
-  description: description,
-  status: status, 
-  time:time,
-  customerId: customerId
-}).then(() =>{toggleForm(0)})
+  description,
+  status, 
+  time,
+  customerId
+}).then((response) =>{
+  console.log(response);
+  toggleForm(customerId);
+}).catch(err => console.log(err));
 }
+// createTicket=() =>{
+//   Axios.post('api/tickets', {customerId: 3, description: "jdlfjaldjfdf", status: "Task"
+//   }).then(res =>{
+//     this.setState({tickets: res.data});
+//   })
+// }
 
 
   render(){
@@ -50,7 +62,7 @@ axios.post('/api/tickets', {
     return(
     <div className="formPageDiv">
         <DisplayCustomer id={id} first_name={first_name} last_name={last_name} phone={phone} email={email}/>
-    <form className="formDiv" onSubmit={this.handleSubmit } > 
+    <form className="formDiv"> 
       <h1>Ticket Form</h1>
       <label >Description</label>
       <textarea name="description" onChange={this.handleChange}></textarea> 
@@ -64,7 +76,7 @@ axios.post('/api/tickets', {
         <option className="closed" value="Closed">Closed</option>
       </select>
       <input value={this.props.customerId} name="customerId" type="hidden"></input>
-        <button>Submit</button>
+        <button onClick={this.handleSubmit}>Submit</button>
     </form>
     </div>
     )

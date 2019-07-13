@@ -1,5 +1,5 @@
 .header{
-  height: 8vh;
+  height: 15vh;
   background-color: #8aae92;
   display: flex;
   justify-content: flex-start;
@@ -10,7 +10,7 @@
 
 .headerTitle{
 color: #c4e3cb;
-font-size: 3rem;
+font-size: 4rem;
 margin-left: 50px;
 font-family: 'Passion One', cursive;
 font-weight: 200;
@@ -20,7 +20,7 @@ margin-bottom: 0;
 }
 
 .frog{
-  font-size: 70px;
+  font-size: 100px;
   color: #c4e3cb;
   margin-left: 50px;
 }
