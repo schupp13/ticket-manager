@@ -45,3 +45,7 @@
 i, button:hover{
 cursor: pointer;
 }
+
+.pageHeader{
+  font-size: 50px;
+}

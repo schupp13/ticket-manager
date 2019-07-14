@@ -18,7 +18,6 @@ class Tickets extends Component{
   componentDidMount(){
     Axios
     .get("/api/tickets").then( response =>{
-      console.log(response.data);
       this.setState({
         tickets: response.data,
        }) 
@@ -37,7 +36,6 @@ class Tickets extends Component{
   }
 
   editTicket = (id, description, status) =>{
-    let {changeView} = this.props
     Axios
     .put(`api/tickets/${id}`,{description, status}).then( response =>{
       this.setState({
@@ -45,13 +43,13 @@ class Tickets extends Component{
       });
     });
 
-    changeView('hello');
+    this.props.changeView("tickets");
 }
   
   render(){
-   console.log(this.state.tickets)
     let viewTickets = this.state.tickets.map((ticket, index)=>{
         return <DisplayTicket 
+        key={ticket.id}
         ticket={ticket}
         deleteTicket = {this.deleteTicket}
         editTicket ={this.editTicket}
@@ -60,7 +58,7 @@ class Tickets extends Component{
     })
     return(    
      <section className="ticketPageDiv">
-       <h1 className="customerHeader">Ticket List</h1>
+       <h1 className="pageHeader">Ticket List</h1>
        <div className="ticketSection">
       {/* ticketBox >  */}
        {viewTickets}

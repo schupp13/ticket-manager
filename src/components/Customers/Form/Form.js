@@ -31,9 +31,7 @@ handleChange = (event) => {
 
 handleSubmit = (e) =>{
   e.preventDefault();
-  
   let {description, status, time, customerId} = this.state;
-  
   let{toggleForm} = this.props;
 
 axios.post('/api/tickets', {
@@ -46,12 +44,6 @@ axios.post('/api/tickets', {
   toggleForm(customerId);
 }).catch(err => console.log(err));
 }
-// createTicket=() =>{
-//   Axios.post('api/tickets', {customerId: 3, description: "jdlfjaldjfdf", status: "Task"
-//   }).then(res =>{
-//     this.setState({tickets: res.data});
-//   })
-// }
 
 
   render(){

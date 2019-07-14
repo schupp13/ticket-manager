@@ -45,6 +45,20 @@ const deleteTicket = (req, res) =>{
   res.status(200).json(tickets);
 }
 
+const getStatus = (req, res) =>{
+  let criticalCount = 0;
+  let semiCount = 0;
+  let taskCount = 0;
+  let all = tickets.length;
+  tickets.map(ticket =>{
+  return ticket.status === "Critical" ? criticalCount++
+  : ticket.status === "Semi-Critical" ? semiCount++
+  : ticket.status === "Task" ? taskCount++: null
+    }
+  );
+  res.status(200).json({all, criticalCount, semiCount, taskCount});
+}
+
 
 const editTicket = (req, res) =>{
   let {status, description} =req.body;
@@ -61,5 +75,6 @@ module.exports ={
   createTicket,
   getTicket,
   deleteTicket,
-  editTicket
+  editTicket,
+  getStatus
 }

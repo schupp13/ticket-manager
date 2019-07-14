@@ -2,7 +2,7 @@ import React from 'react';
 // STYLES FOR THIS COMPONENT ARE LOCATED IN CUSTOMERS.CSS
 
  const DisplayCustomer = (props) =>{
-   let{id, first_name, last_name, email,phone, form} = props;
+   let{id,first_name, last_name, email,phone} = props;
    return(
   <article className="customerBlock">
   <div className="plusIdDiv">

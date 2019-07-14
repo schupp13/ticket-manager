@@ -17,7 +17,6 @@ class Customers extends Component{
 
   componentDidMount(){
     Axios.get("/api/customers").then( response =>{
-      console.log(response.data);
       this.setState({
         customers: response.data,
        }) 
@@ -25,22 +24,22 @@ class Customers extends Component{
 
 };
 
-  form = (customerID) =>{
-    Axios.get(`/api/customers/${customerID}`).then(response => {
-      console.log(response)
-    });
-    if (this.state.viewForm === true) {
+  // form = (customerID) =>{
+  //   Axios.get(`/api/customers/${customerID}`).then(response => {
       
-    }
-    console.log(customerID + "clicked");
-  }
+  //   });
+  //   if (this.state.viewForm === true) {
+      
+  //   }
+  //   console.log(customerID + "clicked");
+  // }
 
   render(){
      
     let {customers} = this.state;
     return(  
       <section className="customerApp">
-      <h1 className="customerHeader">List of Customers</h1>
+      <h1 className="pageHeader">Customer List</h1>
       <div className="customerWrapper">
         {customers.map( customer =>{
           return <DisplayCustomer 

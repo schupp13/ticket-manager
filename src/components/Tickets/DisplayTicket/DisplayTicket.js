@@ -30,7 +30,7 @@ class DisplayTicket extends Component{
   
    <i onClick={() =>{
      this.props.deleteTicket(id);
-     }} class="fas fa-trash"></i>
+     }} className="fas fa-trash"></i>
    </div>
   </div>
   <div className="ticketDescriptionDiv">
@@ -47,7 +47,7 @@ class DisplayTicket extends Component{
        <option className="closed" value="Closed">Closed</option>
     </select>
     <button onClick={()=>{
-      this.props.editTicket(id, this.state.description, this.state.status)}}>UPDATE TICKET</button>
+      this.props.editTicket(id, this.state.description, this.state.status) }}>UPDATE TICKET</button>
    </form>: null}
    
    </div>
