@@ -15,10 +15,10 @@ class App extends Component{
     }
   }
 
-  changeView =(view) =>{
+  changeView = (view) =>{ 
+    console.log(view); 
     this.setState({
-      view: view,
-      
+      view: view     
     })
   }
 
@@ -30,7 +30,8 @@ class App extends Component{
 
   render(){
    let { view, customerId } = this.state
-   console.log(view, customerId)
+   console.log(view, customerId);
+   
   return (
     <div className="App">
       <Header />
@@ -45,7 +46,7 @@ class App extends Component{
       </nav>
         {view === "dashboard" ? <Dashboard />:
          view === "customers" ? <Customers toggleForm={this.toggleForm}/>:
-         view === "tickets" ? <Tickets />: 
+         view === "tickets" ? <Tickets changeView={this.changeView}/>: 
          view === "form" ? <Form toggleForm={this.toggleForm} customerId={customerId}/> : null}
     </div>
   )

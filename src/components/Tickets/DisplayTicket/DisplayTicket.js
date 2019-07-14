@@ -16,7 +16,8 @@ class DisplayTicket extends Component{
 
   render(){
     let {id, status, description, customerId, time} = this.props.ticket;
-  return (<article  className="ticketBox">
+  return (<article  className={ status === "Critical" ? "ticketBox critical"
+  :status ==="Semi-Critical"? "ticketBox semi-critical": "ticketBox" }>
   <div className="ticketTop">
    <div className="topLeft">
      <p>Ticket ID: {id}</p>
@@ -37,8 +38,7 @@ class DisplayTicket extends Component{
     <i className="far fa-edit edit" onClick={() =>{this.setState({editTest: !this.state.editTest})}}></i>
     
    <p> {description}</p>
-   {this.state.editTest ? <form className="updateForm">
-     
+   {this.state.editTest ? <form className="updateForm">  
      <textarea name="description" value={this.state.description} onChange={this.handleChange}></textarea>
      <select name="status" value={this.state.status} onChange={this.handleChange}>
        <option className="critical" value="Critical">Critical</option>
@@ -47,7 +47,7 @@ class DisplayTicket extends Component{
        <option className="closed" value="Closed">Closed</option>
     </select>
     <button onClick={()=>{
-      this.props.editTicket(id, this.state.description, this.state.status)}}></button>
+      this.props.editTicket(id, this.state.description, this.state.status)}}>UPDATE TICKET</button>
    </form>: null}
    
    </div>

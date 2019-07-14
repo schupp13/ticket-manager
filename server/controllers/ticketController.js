@@ -23,9 +23,10 @@ const tickets =[
 let id = 4;
 
 const createTicket = (req, res) =>{
-  console.log('hit');
+  
 let{description,time,status,customerId }= req.body;
- tickets.push({id,customerId,description, time,status});
+console.log(status);
+ tickets.push({id,customerId,description,time,status});
  id++;
  res.json(tickets);
 }
@@ -38,7 +39,6 @@ const getTicket = (req, res) =>{
 const deleteTicket = (req, res) =>{
   console.log(req.params.id);
   let deleteItem = tickets.findIndex((e)=>{
-
     return e.id === Number(req.params.id)
   });
   tickets.splice(deleteItem, 1);
@@ -52,8 +52,8 @@ const editTicket = (req, res) =>{
   let {id} = req.params;
   
   const selected = tickets.find(ticket => ticket.id == id );
-  selected.description = req.body.description;
-  selected.status = req.body.status;
+  selected.description = description;
+  selected.status = status;
 res.status(200).json(tickets);
 }
 

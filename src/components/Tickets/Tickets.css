@@ -1,10 +1,8 @@
 .ticketPageDiv {
-
 width: 80%;
 display: flex;
 flex-direction: column;
 align-items: center;
-
 }
 
 .ticketSection{
@@ -15,13 +13,13 @@ flex-wrap: wrap;
 }
 
 .ticketBox{  
-max-width: 400px;
+width: 400px;
 padding: 15px;
 margin: 15px;
 display:flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
 background-color: #C4E3CB;
 border: 2px solid #616161;
 border-radius: 15px;
@@ -47,6 +45,14 @@ border-radius: 15px;
   
 }
 
+.ticketDescription{
+  width: 100%;
+}
+
+.ticketDescriptionDiv{
+  width: 100%;
+}
+
 
 
 
@@ -58,6 +64,15 @@ border-radius: 15px;
 
 .updateForm{
   display: flex;
-  flex-direction: column
+  flex-direction: column;
+}
+
+
+.critical{
+  background-color: #f68787;
+}
+
+.semi-critical{
+  background-color: #f8a978;
 }
 

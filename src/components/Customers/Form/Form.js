@@ -57,7 +57,6 @@ axios.post('/api/tickets', {
   render(){
     let {id, first_name, last_name, phone, email} = this.state.customer;
     
-    console.log(this.state);
     
     return(
     <div className="formPageDiv">
@@ -69,7 +68,8 @@ axios.post('/api/tickets', {
       <label>Please enter the date and time.</label>
       <input name="time" type="date"  value={this.state.time} onChange={this.handleChange}></input>
       <label >Please enter the status.</label>
-      <select name="status" value={this.state.status} onChange={this.handleChange}>
+      <select name="status" value={this.state.status} onChange={this.handleChange} required>
+        <option value="">None</option>
         <option className="critical" value="Critical">Critical</option>
         <option className="semi" value="Semi-Critical">Semi-Critical</option>
         <option className="task" value="Task">Task</option>

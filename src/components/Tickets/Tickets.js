@@ -37,12 +37,15 @@ class Tickets extends Component{
   }
 
   editTicket = (id, description, status) =>{
+    let {changeView} = this.props
     Axios
     .put(`api/tickets/${id}`,{description, status}).then( response =>{
       this.setState({
         tickets: response.data,
       });
     });
+
+    changeView('hello');
 }
   
   render(){
@@ -52,6 +55,7 @@ class Tickets extends Component{
         ticket={ticket}
         deleteTicket = {this.deleteTicket}
         editTicket ={this.editTicket}
+        
         />
     })
     return(    
