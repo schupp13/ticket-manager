@@ -186,14 +186,24 @@ const getCustomer = (req, res) =>{
       return element
     };
   });
-  // console.log(customer);
   res.status(200).json(customer);
+  
 }
+
+const singleCustomer=(req, res)=>{
+  let single = customers.filter(customer=>{
+  return Number(req.params.id) === customer.id;
+});
+res.status(200).json(single)
+}
+
+
 
 module.exports = {
   customers,
   getCustomers,
-  getCustomer
+  getCustomer,
+  singleCustomer
 };
 
 

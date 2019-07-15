@@ -12,11 +12,20 @@ class Dashboard extends Component{
     }
   }
 
+  goToTickets = (e)=>{
+    // e.stopPropagation();
+    console.log("hello")
+    let {changeView} = this.props
+    changeView("tickets");
+  }
+
   render(){
     return(
       <section className="dashboardDiv">
         <h1 className="pageHeader">Dashboard</h1>
+        <div onClick={this.goToTickets}>
         <Status />
+        </div>
         <Notifications />
       </section>
     )

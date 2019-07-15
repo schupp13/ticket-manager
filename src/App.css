@@ -3,7 +3,7 @@
   padding: 0;
 }
 .App {
-  
+
   padding: 0;
   margin: 0;
   display: flex;
@@ -14,10 +14,14 @@
   background-color: #f4f9f4;
   color: #616161;
   min-height: 100vh;
+  
 }
 
+
 .navBar{
-  height:6vh;
+  height:80px;
+  margin: 0;
+  padding: 0;
   width: 100vw;
   background-color: #616161;
   display: flex;
@@ -28,11 +32,15 @@
 }
 
 .navButton{
-  height:6vh;
+  height:80px;
+  padding: 0;
+  margin: 0 ;
+  width: 160px;
   background-color: #616161;
-  height: 70%;
+  height: 90%;
   border: none;
   font-size: 20px;
+
 }
 .navButton:active{
   background-color: white;
@@ -48,4 +56,8 @@ cursor: pointer;
 
 .pageHeader{
   font-size: 50px;
+}
+
+.activeNav{
+  background-color: rgb(179, 180, 177);
 }

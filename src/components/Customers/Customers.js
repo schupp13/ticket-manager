@@ -11,7 +11,10 @@ class Customers extends Component{
     this.state = {
       customers :[],
       viewForm: false,
-      error: ''
+      error: '',
+      findCustomer: ""
+
+
     }
   }
 
@@ -21,25 +24,25 @@ class Customers extends Component{
         customers: response.data,
        }) 
   })
-
 };
 
-  // form = (customerID) =>{
-  //   Axios.get(`/api/customers/${customerID}`).then(response => {
-      
-  //   });
-  //   if (this.state.viewForm === true) {
-      
-  //   }
-  //   console.log(customerID + "clicked");
-  // }
+// handleChange = (event) => {
+//   this.setState({[event.target.name]: event.target.value});
 
+//   Axios.get(`/api/cust/${event.target.value}`).then(response =>{
+//     this.setState({customers: response.data});
+//   })
+// }
   render(){
-     
+
     let {customers} = this.state;
+    console.log(customers);
     return(  
       <section className="customerApp">
       <h1 className="pageHeader">Customer List</h1>
+      <form>
+      {/* <input name="findCustomer" placeholder="Customer#" onChange={this.handleChange}></input> */}
+      </form>
       <div className="customerWrapper">
         {customers.map( customer =>{
           return <DisplayCustomer 

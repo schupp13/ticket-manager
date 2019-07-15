@@ -76,3 +76,80 @@ border-radius: 15px;
   background-color: #f8a978;
 }
 
+.filterListDiv{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  flex-wrap: wrap;
+}
+.filterOptions{
+  display: flex;
+  justify-content:center;
+  
+}
+
+.filterOptions > button{
+border-radius: 15px;
+font-size: 15px;
+  
+}
+
+
+
+.filterSearch{
+  display: flex;
+}
+
+.filterSearch > form > *{
+  border-radius: 15px;
+
+}
+
+.filterSearch > form > input{
+  width: 80px;
+  font-size: 20px;
+  
+}
+.filterSearch > form > button{
+  width: 80px;
+  font-size: 15px;
+  background-color: #C4E3CB;
+  
+}
+
+.allButton{
+  background-color: #A9A9A9;
+}
+
+.criticalButton{
+  background-color: #F68787;
+}
+.semiButton{
+  background-color: #F8A978;
+}
+.taskButton{
+  background-color: #C4E3CB;
+}
+
+.TicketListHeader{
+  display:flex;
+ 
+  justify-content: flex-end;
+  align-items: center;
+  width: 80%;
+}
+.TicketListHeader h1{
+  justify-self: center;
+}
+
+
+.TicketListHeaderDiv{
+  align-items: flex-end;
+}
+.ticketButton{
+  width: 80px;
+  margin-right: 10px;
+}
+
+
+

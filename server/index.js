@@ -15,15 +15,18 @@ app.get("/api",(req, res)=>{
 // CUSTOMER CALLS
 app.get("/api/customers", customerController.getCustomers)
 app.get("/api/customers/:id", customerController.getCustomer);
+app.get("/api/cust/:id", customerController.singleCustomer);
 
 // TICKET CALLS
 app.get("/api/tickets", ticketController.getTicket);
 app.post("/api/tickets", ticketController.createTicket);
 app.delete("/api/tickets/:id" , ticketController.deleteTicket);
 app.put("/api/tickets/:id" , ticketController.editTicket);
+app.get("/api/tickets/:id" , ticketController.singleTicket);
 
 // STATUS CALLS
 app.get("/api/status", ticketController.getStatus);
+app.get("/api/status/:status", ticketController.statusTickets)
 
 // NOTIFICATION CALLS 
 app.get("/api/notifications", notificationController.getNotifications);

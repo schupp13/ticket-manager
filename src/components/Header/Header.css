@@ -17,10 +17,16 @@ font-weight: 200;
 margin-top: 0;
 margin-bottom: 0;
 
+
 }
 
 .frog{
   font-size: 100px;
   color: #c4e3cb;
   margin-left: 50px;
+}
+
+.statusHeader{
+  align-self: flex-end;
+  justify-self: flex-end;
 }

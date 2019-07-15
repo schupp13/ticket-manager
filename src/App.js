@@ -15,8 +15,8 @@ class App extends Component{
     }
   }
 
-  changeView = (view) =>{ 
-    console.log(view); 
+  changeView = (view) =>{
+    console.log("hello") 
     this.setState({
       view: view     
     })
@@ -29,28 +29,34 @@ class App extends Component{
   }
 
   render(){
-   let { view, customerId } = this.state
+   let { view, customerId } = this.state;
    console.log(view, customerId);
    
   return (
     <div className="App">
       <Header />
       <nav className="navBar">
-        <button className="navButton dashboard" onClick={()=>{this.changeView("dashboard")}}
+        
+        <button className={view === "dashboard" ? "navButton  activeNav": "navButton"} onClick={()=>{this.changeView("dashboard")}}
         >Dashboard</button>
         <button onClick={()=>{this.changeView("customers")}}
-       className="navButton customers">Customers</button>
+       className={this.state.view=== "customers" ? "navButton  activeNav": "navButton"}>Customers</button>
         <button onClick={() =>{
           this.changeView("tickets")}} 
-        className="navButton tickets">Tickets</button>
+          className={this.state.view=== "tickets" ? "navButton  activeNav": "navButton "}>Tickets</button>
       </nav>
-        {view === "dashboard" ? <Dashboard />:
+
+      
+      
+        {view === "dashboard" ? <Dashboard changeView={this.changeView}/>:
          view === "customers" ? <Customers toggleForm={this.toggleForm}/>:
          view === "tickets" ? <Tickets changeView={this.changeView}/>: 
          view === "form" ? <Form toggleForm={this.toggleForm} customerId={customerId}/> : null}
     </div>
   )
   }
+
 }
+
 
 export default App;
