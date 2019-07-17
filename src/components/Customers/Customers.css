@@ -50,3 +50,8 @@ justify-content: center;
   margin-bottom: 0;
   
 }
+
+.customerSearch{
+  border-radius: 15px;
+  font-size: 20px;
+}

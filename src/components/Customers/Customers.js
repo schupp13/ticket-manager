@@ -26,13 +26,12 @@ class Customers extends Component{
   })
 };
 
-// handleChange = (event) => {
-//   this.setState({[event.target.name]: event.target.value});
-
-//   Axios.get(`/api/cust/${event.target.value}`).then(response =>{
-//     this.setState({customers: response.data});
-//   })
-// }
+handleChange = (event) => {
+console.log("helloooooooooooo")
+  Axios.get(`/api/customers?id=${event.target.value}`).then(response =>{
+    this.setState({customers: response.data});
+  })
+}
   render(){
 
     let {customers} = this.state;
@@ -41,7 +40,7 @@ class Customers extends Component{
       <section className="customerApp">
       <h1 className="pageHeader">Customer List</h1>
       <form>
-      {/* <input name="findCustomer" placeholder="Customer#" onChange={this.handleChange}></input> */}
+      <input name="findCustomer" placeholder="Customer#" onChange={this.handleChange} className="customerSearch"></input>
       </form>
       <div className="customerWrapper">
         {customers.map( customer =>{

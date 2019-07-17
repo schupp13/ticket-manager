@@ -38,7 +38,7 @@ class DisplayTicket extends Component{
     <i className="far fa-edit edit" onClick={() =>{this.setState({editTest: !this.state.editTest})}}></i>
     
    <p> {description}</p>
-   {this.state.editTest ? <form className="updateForm">  
+   {this.state.editTest ? <form className="updateForm" onSubmit={e => e.preventDefault()}>  
      <textarea name="description" value={this.state.description} onChange={this.handleChange}></textarea>
      <select name="status" value={this.state.status} onChange={this.handleChange}>
        <option className="critical" value="Critical">Critical</option>

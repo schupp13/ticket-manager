@@ -10,7 +10,7 @@ flex-direction: column;
   -webkit-animation-name: example; 
   -webkit-animation-duration: 4s; 
   animation-name: example;
-  animation-duration: 4s;
+  animation-duration: 10s;
 
 }
 /* Safari 4.0 - 8.0 */
@@ -27,12 +27,14 @@ flex-direction: column;
 
 .notificationHeader{
   font-size: 30px;
+  
 }
 
 .notificationHeaderDiv{
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
+  margin-bottom: 20px;
 }
 .notificationHeaderDiv > * {
   font-size: 30px;

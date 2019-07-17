@@ -11,7 +11,8 @@ constructor(){
     description: "",
     status: "", 
     time:"",
-    customerId: 0
+    customerId: 0,
+    addButton: false,
  
   };
 }
@@ -48,9 +49,8 @@ axios.post('/api/tickets', {
 
   render(){
     let {id, first_name, last_name, phone, email} = this.state.customer;
-    
-    
-    return(
+   
+    return( 
     <div className="formPageDiv">
         <DisplayCustomer id={id} first_name={first_name} last_name={last_name} phone={phone} email={email}/>
     <form className="formDiv"> 

@@ -106,16 +106,11 @@ font-size: 15px;
 }
 
 .filterSearch > form > input{
-  width: 80px;
+  
   font-size: 20px;
   
 }
-.filterSearch > form > button{
-  width: 80px;
-  font-size: 15px;
-  background-color: #C4E3CB;
-  
-}
+
 
 .allButton{
   background-color: #A9A9A9;
@@ -147,7 +142,7 @@ font-size: 15px;
   align-items: flex-end;
 }
 .ticketButton{
-  width: 80px;
+  width: 82px;
   margin-right: 10px;
 }
 

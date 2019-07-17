@@ -176,7 +176,14 @@ const customers = [{
 }];
 
 const getCustomers = (req, res) =>{
+  if(req.query.id){
+    let filter = customers.filter(customer =>{
+        return Number(req.query.id) === Number(customer.id)
+    })
+    res.status(200).json(filter)
+  }else{
   res.status(200).json(customers);
+  }
 };
 
 //THIS ONE IS SINGULAR

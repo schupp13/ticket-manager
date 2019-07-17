@@ -70,22 +70,27 @@ class Tickets extends Component{
   }
 
   editTicket = (id, description, status) =>{
+    let d = new Date();
+        let date2 = d.toLocaleDateString();
     Axios
-    .put(`api/tickets/${id}`,{description, status}).then( response =>{
+    .put(`api/tickets/${id}`, {description, status}).then( response =>{
       this.setState({
         tickets: response.data,
       });
+      Axios.post('/api/notifications', { notification: description + "-" +status,date: date2}).then((response) =>{
+        setTimeout(() =>{
+          this.props.changeView("dashboard");
+        }, 1000)
+
+        
+      }).catch(error=>{
+        console.log(error);
+        this.setState({error: "an error has occured, please try again later"});
+      })
     });
-    let d = new Date();
-        let date2 = d.toLocaleDateString();
+    
     // posting to notifications also
-    Axios.post('/api/notifications', { notification: description + " " + status,date: date2}).then((response) =>{
-      this.props.changeView("notifications");
-      
-    }).catch(error=>{
-      console.log(error);
-      this.setState({error: "an error has occured, please try again later"});
-    })
+    
 
     
 }

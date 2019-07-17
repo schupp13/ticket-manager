@@ -4,40 +4,60 @@ const tickets =[
     "description":"This guy is such a jerk... wtf. He says he wants his shippment of socks replaced or his going to call the BB on us.",
     "time":"2019-07-12",
     "status":"Task",
-    "customerId":1
+    "customerId":18
   },
   { "id": 2,
   "description":"Brooks want needs his hardhats by mid july or he will cancel his order. Need to here from M3 on the status --- needs to ship by the 10th or ASAP",
   "time":"2019-07-12",
   "status":"Semi-Critical",
-  "customerId":4
+  "customerId":22
 },
 { "id": 3,
 "description":"Customer is not happy with the gloves that he purchased.",
 "time":"2019-07-12",
 "status":"Critical",
-"customerId":3
+"customerId":7
+},
+{ "id": 4,
+"description":"Customer is not happy with the gloves that he purchased.",
+"time":"2019-07-12",
+"status":"Task",
+"customerId":8
+},
+{ "id": 5,
+"description":"Customer is not happy with the gloves that he purchased.",
+"time":"2019-07-12",
+"status":"Task",
+"customerId":7
+},
+{ "id": 6,
+"description":"Customer is not happy with the gloves that he purchased.",
+"time":"2019-07-12",
+"status":"Semi-Critical",
+"customerId":12
+},
+{ "id": 7,
+"description":"Customer is not happy with the gloves that he purchased.",
+"time":"2019-07-12",
+"status":"Critical",
+"customerId":15
 },
 ];
 
-let id = 4;
+let id = 8;
 
 const createTicket = (req, res) =>{
-
 let{description,time,status,customerId }= req.body;
-console.log(status);
  tickets.push({id,customerId,description,time,status});
  id++;
  res.json(tickets);
 }
 
 const getTicket = (req, res) =>{
-  console.log("helllow");
  res.status(200).json(tickets);
 }
 
 const deleteTicket = (req, res) =>{
-  console.log(req.params.id);
   let deleteItem = tickets.findIndex((e)=>{
     return e.id === Number(req.params.id)
   });
@@ -73,7 +93,6 @@ res.status(200).json(tickets);
 
 
 const statusTickets =(req, res)=>{
-  console.log(req.params.status);
   let status = tickets.filter((ticket) =>{   
     return ticket.status == req.params.status
   })

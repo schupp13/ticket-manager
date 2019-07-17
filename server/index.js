@@ -15,7 +15,8 @@ app.get("/api",(req, res)=>{
 // CUSTOMER CALLS
 app.get("/api/customers", customerController.getCustomers)
 app.get("/api/customers/:id", customerController.getCustomer);
-app.get("/api/cust/:id", customerController.singleCustomer);
+
+
 
 // TICKET CALLS
 app.get("/api/tickets", ticketController.getTicket);
